@@ -2,28 +2,6 @@
   <body>
     <h1>My html</h1>
     <div id="root" packageId="4" cartId="182"></div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script>
-      axios.get("http://localhost:5001/getfiles").then((response) => {
-        console.log(response);
-        const jsFiles = response.data.jsFiles;
-        const cssFiles = response.data.cssFiles;
-        console.log(jsFiles);
-
-        elements = jsFiles.map((eachFileName) => {
-          let script = document.createElement("script");
-          script.src = `http://localhost:5001/static/js/${eachFileName}`;
-          document.head.appendChild(script);
-        });
-          
-        elements = cssFiles.map((eachFileName) => {
-          let link = document.createElement("link");
-          link.href = `http://localhost:5001/static/css/${eachFileName}`;
-          document.head.appendChild(link);
-          return link;
-        });
-      });
-    </script>
+    <script src="./embed.js"></script>
   </body>
 </html>
